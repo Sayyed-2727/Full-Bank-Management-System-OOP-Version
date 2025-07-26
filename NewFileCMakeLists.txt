@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.10)
+project(BankApplication)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# List all source files explicitly (adjust paths if needed)
+set(SOURCES
+    ConsoleApplication.cpp
+    clsPerson.cpp
+    clsBankClient.cpp
+    clsInputValidate.cpp
+    ClsUtil.cpp
+    clsMainScreen.cpp
+    clsLoginScreen.cpp
+    clsUser.cpp
+    Global.cpp
+)
+
+# Create executable
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+# Include directories (searches for headers in these paths)
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}  # Current folder
+    ${CMAKE_CURRENT_SOURCE_DIR}/include  # If you have an include folder
+)
+
+# For Windows systems (uncomment if needed)
+# if(WIN32)
+#     target_link_libraries(${PROJECT_NAME} PRIVATE ws2_32)
+# endif()
